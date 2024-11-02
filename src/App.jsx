@@ -5,7 +5,9 @@ import Form from 'react-bootstrap/Form';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [search, setSearch] = useState('καλος')
+  const [size, setSize] = useState(5)
+  const [direction, setDirection] = useState('vertical')
 
   return (
     <Container className="p-3">
@@ -18,13 +20,11 @@ function App() {
         <Form>
           <Form.Group className="mb-3" controlId="form.Search">
             <Form.Label>Find word</Form.Label>
-            <Form.Control type="text" placeholder="καλος" />
+            <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" defaultValue={search} placeholder="καλος" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="form.Size">
             <Form.Label>Minimum length</Form.Label>
-            <Form.Select aria-label="Default select example">
-              <option value="2">2</option>
-              <option value="3">3</option>
+            <Form.Select onChange={(e) => { setSize(e.target.value) }} defaultValue={size}>
               <option value="4">4</option>
               <option value="5">5</option>
               <option value="6">6</option>
@@ -32,18 +32,24 @@ function App() {
               <option value="8">8</option>
             </Form.Select>
           </Form.Group>
-          <Form.Group className="mb-3" controlId="form.Vertical">
+          <Form.Group className="mb-3" controlId="form.Direction">
             <Form.Label>Direction of search</Form.Label>
             <Form.Check
               label="By line (vertical)"
-              name="vertical"
+              name="direction"
               type="radio"
+              value="vertical"
+              checked={direction == 'vertical'}
+              onChange={(e) => { setDirection(e.target.value) }}
             />
             <Form.Check
               inline
               label="By word (horizontal)"
-              name="vertical"
+              name="direction"
               type="radio"
+              value="horizontal"
+              checked={direction == 'horizontal'}
+              onChange={(e) => { setDirection(e.target.value) }}
             />
           </Form.Group>
         </Form>
