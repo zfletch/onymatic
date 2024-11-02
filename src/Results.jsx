@@ -25,7 +25,7 @@ function Results({ size, vertical, search }) {
   return (
     <Accordion>
       {matches.map((gram, index) => (
-        <Epigram key={index} epigram={gram} word={search} eventKey={index} />
+        <Epigram key={index} epigram={gram} word={search} vertical={vertical} eventKey={index} />
       ))}
     </Accordion>
   )

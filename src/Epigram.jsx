@@ -1,7 +1,9 @@
 import Accordion from 'react-bootstrap/Accordion';
 import Container from 'react-bootstrap/Container';
 
-function Epigram({ eventKey, word, epigram: { name, url, lines } }) {
+function Epigram({ eventKey, word, vertical, epigram: { name, url, lines, line_letters, word_letters } }) {
+  const hl_start_index = vertical ? line_letters.join('').indexOf(word) : word_letters.join('').indexOf(word);
+
   return (
     <Accordion.Item eventKey={eventKey}>
       <Accordion.Header>
@@ -9,7 +11,12 @@ function Epigram({ eventKey, word, epigram: { name, url, lines } }) {
       </Accordion.Header>
       <Accordion.Body>
         <div>
-          {lines.map((line, index) => (
+          {vertical && lines.map((line, index) => (
+            (index >= hl_start_index && index < hl_start_index + word.length)
+              ? <p key={index}><strong>{line[0]}</strong>{line.slice(1)}</p>
+              : <p key={index}>{line}</p>
+          ))}
+          {!vertical && lines.map((line, index) => (
             <p key={index}>{line}</p>
           ))}
         </div>

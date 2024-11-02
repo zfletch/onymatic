@@ -37,6 +37,7 @@ function App() {
             <Form.Label>Direction of search</Form.Label>
             <Form.Check
               label="By line (vertical)"
+              id="vertical"
               name="direction"
               type="radio"
               value="vertical"
@@ -46,6 +47,7 @@ function App() {
             <Form.Check
               inline
               label="By word (horizontal)"
+              id="horizontal"
               name="direction"
               type="radio"
               value="horizontal"
