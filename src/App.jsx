@@ -7,7 +7,7 @@ import './App.css'
 
 function App() {
   const [search, setSearch] = useState('καλος')
-  const [size, setSize] = useState(5)
+  const [size, setSize] = useState(4)
   const [direction, setDirection] = useState('vertical')
 
   return (
@@ -57,7 +57,7 @@ function App() {
       </Container>
       <Container className="p-3 mb-4 bg-light rounded-3">
         <div>
-          <Results />
+          <Results size={size} vertical={direction === 'vertical'} search={search.replaceAll('ς', 'σ')} />
         </div>
         <div>
           <ul>
