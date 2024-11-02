@@ -5,7 +5,7 @@ function horizontalDisplay(lines, hlStartIndex, size) {
   let count = 0;
 
   return lines.map((line) => {
-    const words = line.split(' ');
+    const words = line.split(/\s+/);
 
     return (
       <p>
