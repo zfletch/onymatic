@@ -55,16 +55,6 @@ function App() {
             <Form.Label>Find word</Form.Label>
             <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" value={latinToGreek(search)} defaultValue={search} placeholder="καλος" />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="form.Size">
-            <Form.Label>Minimum length</Form.Label>
-            <Form.Select onChange={(e) => { setSize(e.target.value) }} defaultValue={size}>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-            </Form.Select>
-          </Form.Group>
           <Form.Group className="mb-3" controlId="form.Direction">
             <Form.Label>Direction of search</Form.Label>
             <Form.Check
