@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
+import Results from './Results.jsx';
 
 import './App.css'
 
@@ -56,7 +57,7 @@ function App() {
       </Container>
       <Container className="p-3 mb-4 bg-light rounded-3">
         <div>
-          No results
+          <Results />
         </div>
         <div>
           <ul>
