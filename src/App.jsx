@@ -5,6 +5,38 @@ import Results from './Results.jsx';
 
 import './App.css'
 
+function latinToGreek(string) {
+  const characterMap = {
+    'a': 'α',
+    'b': 'β',
+    'g': 'γ',
+    'd': 'δ',
+    'e': 'ε',
+    'z': 'ζ',
+    'h': 'η',
+    'q': 'θ',
+    'i': 'ι',
+    'k': 'κ',
+    'l': 'λ',
+    'm': 'μ',
+    'n': 'ν',
+    'c': 'ξ',
+    'o': 'ο',
+    'p': 'π',
+    'r': 'ρ',
+    's': 'σ',
+    't': 'τ',
+    'u': 'υ',
+    'f': 'φ',
+    'x': 'χ',
+    'y': 'ψ',
+    'w': 'ω',
+    'ς': 'σ',
+  }
+
+  return string.split('').map((c) => characterMap[c] || c).join('');
+}
+
 function App() {
   const [search, setSearch] = useState('καλος')
   const [size, setSize] = useState(4)
@@ -21,7 +53,7 @@ function App() {
         <Form>
           <Form.Group className="mb-3" controlId="form.Search">
             <Form.Label>Find word</Form.Label>
-            <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" defaultValue={search} placeholder="καλος" />
+            <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" value={latinToGreek(search)} defaultValue={search} placeholder="καλος" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="form.Size">
             <Form.Label>Minimum length</Form.Label>
@@ -59,7 +91,7 @@ function App() {
       </Container>
       <Container className="p-3 mb-4 bg-light rounded-3">
         <div>
-          <Results size={size} vertical={direction === 'vertical'} search={search.replaceAll('ς', 'σ')} />
+          <Results size={size} vertical={direction === 'vertical'} search={latinToGreek(search)} />
         </div>
         <div>
           <ul>
