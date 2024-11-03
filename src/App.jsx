@@ -53,7 +53,7 @@ function App() {
         <Form>
           <Form.Group className="mb-3" controlId="form.Search">
             <Form.Label>Find word</Form.Label>
-            <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" value={latinToGreek(search)} defaultValue={search} placeholder="καλος" />
+            <Form.Control onChange={(e) => { setSearch(e.target.value) }} type="text" value={latinToGreek(search)} placeholder="καλος" />
           </Form.Group>
           <Form.Group className="mb-3" controlId="form.Direction">
             <Form.Label>Direction of search</Form.Label>

@@ -4,30 +4,32 @@ import Container from 'react-bootstrap/Container';
 function horizontalDisplay(lines, hlStartIndex, size) {
   let count = 0;
 
-  return lines.map((line) => {
+  return lines.map((line, lineIndex) => {
     const words = line.split(/\s+/);
 
     return (
-      <p>
-        {words.map((word, index) => {
+      <p key={lineIndex}>
+        {words.map((word, wordIndex) => {
           let text;
           if (count >= hlStartIndex && count < hlStartIndex + size) {
             text = (
-              <span>
+              <span key={`${lineIndex}-${wordIndex}`}>
                 <strong>{word[0]}</strong>{word.slice(1)}
-                {(index < words.length - 1) && ' '}
+                {(wordIndex < words.length - 1) && ' '}
               </span>
             );
           } else {
             text = (
-              <span>
+              <span key={`${lineIndex}-${wordIndex}`}>
                 {word}
-                {(index < words.length - 1) && ' '}
+                {(wordIndex < words.length - 1) && ' '}
               </span>
             );
           }
 
-          count++;
+          if (/[\u0370-\u03ff\u1f00-\u1fff]+/.test(word)) {
+            count++;
+          }
 
           return text;
         })}
