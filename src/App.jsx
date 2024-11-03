@@ -34,11 +34,11 @@ function latinToGreek(string) {
     'ς': 'σ',
   }
 
-  return string.split('').map((c) => characterMap[c] || c).join('');
+  return string.toLowerCase().split('').map((c) => characterMap[c] || c).join('');
 }
 
 function App() {
-  const [search, setSearch] = useState('καλος')
+  const [search, setSearch] = useState('καλη')
   const [size, setSize] = useState(4)
   const [direction, setDirection] = useState('vertical')
 
