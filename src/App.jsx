@@ -38,7 +38,7 @@ function latinToGreek(string) {
 }
 
 function App() {
-  const [search, setSearch] = useState('καλη')
+  const [search, setSearch] = useState('αβγδ')
   const [size, setSize] = useState(4)
   const [direction, setDirection] = useState('vertical')
 
